@@ -1,23 +1,23 @@
 import './App.css';
 import Customer from './components/Customer';
-import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableHead from '@mui/material/TableHead';
 import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
-import { withStyles } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
+//import { withStyles } from '@mui/material/styles';
 
-const styles = theme =>({
-  root:{
-    width : '100%',
-    marginTop : theme.spacing.unit * 3,
-    overflowX: "auto"
-  },
-  table:{
-    minWidth : 1080
-  }
-})
+// const styles = theme =>({
+//   root:{
+//     width : '100%',
+//     marginTop : theme.spacing.unit * 3,
+//     overflowX: "auto"
+//   },
+//   table:{
+//     minWidth : 1080
+//   }
+// })
 
 const customers = [{
    'id' : 1
@@ -49,10 +49,10 @@ const customers = [{
 ]
 
 function App() {
-  const { classes }  = this.props;
+  //const { classes }  = this.props;
   return (
-    <Paper className={classes.root}>
-    <Table className={classes.table}>
+    <Paper>
+    <Table sx={{ minWidth: 650 }}>
     <TableHead>
       <TableRow>
         <TableCell>번호</TableCell>
@@ -85,8 +85,8 @@ function App() {
   );
 }
 
-//export default App;
-export default withStyles(styles)(App);
+export default App;
+//export default withStyles(styles)(App);
 // App.js 실질적으로 화면의 내용 출력을 담당하는 부분임.
 // class => className  : jsx 표현식을 따름
 // Props를 이용해서 데이타를 전달한다.
