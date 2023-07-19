@@ -6,13 +6,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import {withStyles} from '@mui/material/styles';
+//import {withStyles} from '@mui/material/styles';
 
- const styles = theme =>({
-   hidden:{
-     display : none
-   }
- })
+// const styles = theme =>({
+//   hidden:{
+//     display:"none"
+//   }
+// });
 
 class CustomerAdd extends React.Component{    
     
@@ -113,7 +113,7 @@ class CustomerAdd extends React.Component{
                 <Dialog open={this.state.open} onClose={this.handleClose}>
                     <DialogTitle>고객정보추가</DialogTitle>
                     <DialogContent>
-                        <input className={classes.hidden} accept="image/*" id="raised-button-file" type="file" file={this.state.file} value={this.state.fileName} onChange={this.handleFileChange}/><br/>
+                        <input className="display:none" accept="image/*" id="raised-button-file" type="file" file={this.state.file} value={this.state.fileName} onChange={this.handleFileChange}/><br/>
                         <label htmlFor="raised-button-file">
                             <Button variant="contained" color="primary" component="span" name="file">
                                 {this.state.fileName === "" ? "프로필 이미지 선택":this.state.fileName}
@@ -134,4 +134,4 @@ class CustomerAdd extends React.Component{
     }
 }
 
-export default withStyles(styles)(CustomerAdd);
+export default CustomerAdd;
