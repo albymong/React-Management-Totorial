@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Customer from './components/Customer';
+import CustomerAdd from './components/CustomerAdd';
 import './App.css';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -24,9 +25,22 @@ import CircularProgress from '@mui/material/CircularProgress';
 class App extends Component {
   //const { classes }  = this.props;
 
-  state = {
-    customers : "",
-    completed : 0
+  constructor(props){
+    super(props);
+    this.state = {
+      customers : "",
+      completed : 0
+    }
+  }
+
+  stateRefresh = () => {
+    this.setState({
+      customers : "",
+      completed : 0
+    });
+    this.callApi()
+        .then(res => this.setState({customers : res}))
+        .catch(err => console.log(err));
   }
 
   componentDidMount() {
@@ -49,6 +63,7 @@ class App extends Component {
 
   render(){
     return (
+      <div>
       <Paper>
       <Table sx={{ minWidth: 650 }}>
       <TableHead>
@@ -85,6 +100,8 @@ class App extends Component {
           </TableBody>
         </Table>      
       </Paper>
+      <CustomerAdd stateRefresh={this.stateRefresh}/>
+      </div>
     );
   }
 }
